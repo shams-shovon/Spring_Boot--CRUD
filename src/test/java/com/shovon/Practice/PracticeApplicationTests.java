@@ -1,10 +1,10 @@
-package com.shovon.Chalk_in_hand;
+package com.shovon.Practice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ChalkInHandApplicationTests {
+class PracticeApplicationTests {
 
 	@Test
 	void contextLoads() {

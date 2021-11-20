@@ -1,13 +1,13 @@
-package com.shovon.Chalk_in_hand;
+package com.shovon.Practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ChalkInHandApplication {
+public class PracticeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ChalkInHandApplication.class, args);
+		SpringApplication.run(PracticeApplication.class, args);
 	}
 
 }
