@@ -3,6 +3,9 @@ package com.shovon.Practice.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +23,7 @@ import com.shovon.Practice.service.impl.EmployeeServiceImpl;
 
 @RestController
 @RequestMapping("/api/employees")
+@EnableCaching
 public class EmployeeController {
 	@Autowired
 	private EmployeeServiceImpl employeeServiceImpl;
@@ -41,6 +45,7 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("{id}")
+	@Cacheable(key = "#id",value = "Employee")
 	public Employee getEmployeeById(@PathVariable("id") long id) {
 		return employeeServiceImpl.getEmployeeById(id);
 	}
@@ -53,6 +58,7 @@ public class EmployeeController {
 	}
 	
 	@DeleteMapping("{id}")
+	@CacheEvict(key = "#id",value = "Employee")
 	public String deleteEmployeeById(@PathVariable("id") long id) {
 		employeeServiceImpl.deleteEmployeeById(id);
 		return "Successfully delete";

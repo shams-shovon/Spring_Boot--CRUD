@@ -33,6 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public Employee getEmployeeById(long id) {
 		// TODO Auto-generated method stub
+		System.out.println("called findProductById() from DB");
 		return employeeRepository.findById(id).orElseThrow(()->
 		                            new ResourceNotFoundException("Employee", "id", id));
 	}
